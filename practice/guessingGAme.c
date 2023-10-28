@@ -6,9 +6,9 @@ int main()
 {
     int i, x,guess = 0;
     srand(time(NULL));
-    int random = (rand() % 31) + 1;
+    int random = (rand() % 31);
 
-    printf("would you choose a number between 1 and 30 , you have 5 attempts: ");
+    printf("would you choose a number between 0 and 30 , you have 5 attempts: ");
 
     for(i = 1; i <= 5; i++)
     {
