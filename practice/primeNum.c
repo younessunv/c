@@ -14,7 +14,7 @@ int main()
     else if(x == 2)
         printf("the number 2 is a prime number.");
     else
-        for(i = 2; i < sqrt(x); i++)
+        for(i = 2; i <= sqrt(x); i++)
         {
             if(x % i == 0)
             {
