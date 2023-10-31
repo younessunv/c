@@ -11,7 +11,7 @@ int main ()
     int n, arr[] = {9, 20, 25, 15, 1, 3, 27, 5, 0, 13, 7, 12, 18, 16, 21, 23, 10, 24};
     const int size = sizeof(arr) / sizeof(arr[0]);
 
-    insertion_Sort(arr, size);
+    insertionSort(arr, size);
 
     printf("Enter the desired number in the range of 0 to 30: ");
     scanf("%d", &n);
