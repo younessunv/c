@@ -1,31 +1,32 @@
 #include <stdio.h>
-#include <math.h>
 
-int main()
-{
-    int x, i;
-    int is_prime = 1;
-
-    printf("insert a number: ");
-    scanf("%d", &x);
-
-    if(x == 1)
-        printf("the number 1 is Not a prime number.");
-    else if(x == 2)
-        printf("the number 2 is a prime number.");
-    else
-        for(i = 2; i <= sqrt(x); i++)
-        {
-            if(x % i == 0)
-            {
-                is_prime = 0;
-                break;
-            }
+int isPrime(int n) {
+    if (n <= 1) {
+        return 0;
+    }
+    if (n <= 3) {
+        return 1;
+    }
+    if (n % 2 == 0 || n % 3 == 0) {
+        return 0;
+    }
+    for (int i = 5; i * i <= n; i += 6) {
+        if (n % i == 0 || n % (i + 2) == 0) {
+            return 0;
         }
-    
-    if(is_prime == 0)
-        printf("the number %d is Not prime number.", x);
-    else
-        printf("the number %d is a prime number.", x);
+    }
+    return 1; 
+}
+
+int main() {
+    int num;
+    printf("Enter a number: ");
+    scanf("%d", &num);
+
+    if (isPrime(num)) {
+        printf("%d is a prime number.\n");
+    } else {
+        printf("%d is not a prime number.\n");
+    }
     return 0;
 }
