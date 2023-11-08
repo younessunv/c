@@ -3,7 +3,7 @@
 int main ()
 {
     int n, i, j, count = 0;
-    int arr[100];
+    int arr[300];
 
     for(i = 2; i < 300; i++)
     {
@@ -23,7 +23,7 @@ int main ()
             }    
     }
 
-    printf("Would you inser a number: ");
+    printf("Would you insert a number of prime numbers you want: ");
     scanf("%d", &n);
 
     for(i = 0; i < n; i++)
