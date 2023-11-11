@@ -35,5 +35,8 @@ int main()
             continue;
         printf("%d ", *p);
     }
+
+    getchar();
+
     return 0;
 }
