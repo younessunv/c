@@ -1,23 +1,26 @@
 #include <stdio.h>
 
+#define Max_size 100
+
 int main()
 {
     int x, count = 0;
-    int arr[100];
+    int arr[Max_size];
     int *p = arr;
 
     printf("insert your numbers in the list {-1 to stop}: ");
     while(1)
     {
-        scanf("%d", p);
-
-        if(*p == -1)
-            break;
-        if(count >= 100)
+        if(count >= Max_size)
         {
             printf("you've reached the maximum of amount allowed");
             break;
         }
+        
+        scanf("%d", p);
+
+        if(*p == -1)
+            break;
 
         p++;
         count++;
