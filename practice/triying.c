@@ -13,8 +13,13 @@ int main() {
     // Generate random numbers
     srand(time(NULL));
     for (i = 0; i < ARRAY_SIZE; i++) {
-        secretNum[i] = rand() % 10 + 1;
+        int newRandom;
+        do {
+            newRandom = rand() % 10 + 1;
+        } while (newRandom == secretNum[0] || newRandom == secretNum[1] || newRandom == secretNum[2]);
+        secretNum[i] = newRandom;
     }
+
 
     printf("* * *\n");
     while (attempts > 0) {
@@ -38,6 +43,7 @@ int main() {
     // Print the congratulatory message outside the loop
     if (correctGuesses) {
         printf("Congratulations! You guessed all the numbers correctly!\n");
+        printf("The correct numbers were: %d %d %d\n", secretNum[0], secretNum[1], secretNum[2]);
     } else {
         printf("Sorry, your guesses are incorrect.\n");
         printf("The correct numbers were: %d %d %d\n", secretNum[0], secretNum[1], secretNum[2]);
