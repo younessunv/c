@@ -33,8 +33,10 @@ int main() {
 
         attempts--;
 
-        // Move the check for correct guesses outside the loop
-        if (input[0] == secretNum[0] && input[1] == secretNum[1] && input[2] == secretNum[2]) {
+        if ((input[0] == secretNum[0] || input[0] == secretNum[1] || input[0] == secretNum[2])
+            && (input[1] == secretNum[0] || input[1] == secretNum[1] || input[1] == secretNum[2])
+            && (input[2] == secretNum[0] || input[2] == secretNum[1] || input[2] == secretNum[2]))
+        {
             correctGuesses = 1;
             break;
         }
