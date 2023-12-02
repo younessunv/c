@@ -2,54 +2,16 @@
 #include <stdlib.h>
 #include <time.h>
 #include <string.h>
-#include <ctype.h>
 
 #define MAX_RANDOM_NUMBER 20
 
 int ordered_checker(int input[], int random[], int option);
 int disordered_checker(int input[], int random[], int option);
-int game();
+
 
 int main()
 {
-    char play[4];
-
-    do
-    {
-        printf("Do you want to play? (yes/no): ");
-        scanf("%3s", play);
-
-        // Convert the input to lowercase
-        for (int i = 0; play[i]; i++)
-        {
-            play[i] = tolower(play[i]);
-        }
-
-        if (strcmp(play, "yes") == 0)
-        {
-            printf("\n\\\\\\\\\\\\\\\\\\\\\\\\\\================Let's play!================//////////////");
-            game();
-        }
-        else if (strcmp(play, "no") == 0)
-        {
-            printf("Thanks for your time. Goodbye!\n");
-            break;
-        }
-        else
-        {
-            printf("Invalid input. Please enter 'yes' or 'no'.\n");
-        }
-    }while(strcmp(play, "yes") == 0);
-
-    return 0;
-}
-
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-int game()
-{
-    int i, guesses, input[7], option, attempts, correctGuesses = 0;
+    int i, guesses,input[7], option, attempts, correctGuesses = 0;
     char order[20];
 
     // creating our menu.
@@ -99,6 +61,10 @@ int game()
         random[i] = newRandom;
     }
 
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
     /*---------------------------------------------------------------DISORDERED:-----------------------------------------------------------------*/
 
     // working with the case of option 3
@@ -106,7 +72,7 @@ int game()
     {
         if (option == 3)
         {
-            printf("\n* * *\n");
+            printf("* * *\n");
             while (correctGuesses != 1)
             {
                 // Get user guesses
@@ -129,7 +95,7 @@ int game()
         // working with the case of option 5
         if (option == 5)
         {
-            printf("\n* * * * *\n");
+            printf("* * * * *\n");
             while (correctGuesses != 1)
             {
                 // Get user guesses
@@ -152,7 +118,7 @@ int game()
         // working with the case of option 7
         if (option == 7)
         {
-            printf("\n* * * * * * *\n");
+            printf("* * * * * * *\n");
             while (correctGuesses != 1)
             {
                 // Get user guesses
@@ -179,7 +145,7 @@ int game()
         // working with the case of option 3
         if (option == 3)
         {
-            printf("\n* * *\n");
+            printf("* * *\n");
             while (correctGuesses != 1)
             {
                 // Get user guesses
@@ -202,7 +168,7 @@ int game()
         // working with the case of option 5
         if (option == 5)
         {
-            printf("\n* * * * *\n");
+            printf("* * * * *\n");
             while (correctGuesses != 1)
             {
                 // Get user guesses
@@ -225,7 +191,7 @@ int game()
         // working with the case of option 7
         if (option == 7)
         {
-            printf("\n* * * * * * *\n");
+            printf("* * * * * * *\n");
             while (correctGuesses != 1)
             {
                 // Get user guesses
@@ -245,6 +211,7 @@ int game()
             }
         }
     }
+
     return 0;
 }
 
