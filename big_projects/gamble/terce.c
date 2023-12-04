@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <string.h>
+#include <ctype.h>
 
 #define MAX_RANDOM_NUMBER 20
 
@@ -9,9 +10,12 @@ int ordered_checker(int input[], int random[], int option);
 int disordered_checker(int input[], int random[], int option);
 
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 int main()
 {
-    int i, guesses,input[7], option, attempts, correctGuesses = 0;
+    int i, guesses, input[7], option, attempts, correctGuesses = 0;
     char order[20];
 
     // creating our menu.
@@ -61,10 +65,6 @@ int main()
         random[i] = newRandom;
     }
 
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
     /*---------------------------------------------------------------DISORDERED:-----------------------------------------------------------------*/
 
     // working with the case of option 3
@@ -72,7 +72,7 @@ int main()
     {
         if (option == 3)
         {
-            printf("* * *\n");
+            printf("\n* * *\n");
             while (correctGuesses != 1)
             {
                 // Get user guesses
@@ -86,7 +86,6 @@ int main()
 
                 if (guesses == option)
                 {
-                    correctGuesses = 1;
                     break;
                 }
             }
@@ -95,7 +94,7 @@ int main()
         // working with the case of option 5
         if (option == 5)
         {
-            printf("* * * * *\n");
+            printf("\n* * * * *\n");
             while (correctGuesses != 1)
             {
                 // Get user guesses
@@ -109,7 +108,6 @@ int main()
 
                 if (guesses == option)
                 {
-                    correctGuesses = 1;
                     break;
                 }
             }
@@ -118,7 +116,7 @@ int main()
         // working with the case of option 7
         if (option == 7)
         {
-            printf("* * * * * * *\n");
+            printf("\n* * * * * * *\n");
             while (correctGuesses != 1)
             {
                 // Get user guesses
@@ -132,7 +130,6 @@ int main()
 
                 if (guesses == option)
                 {
-                    correctGuesses = 1;
                     break;
                 }
             }
@@ -145,7 +142,7 @@ int main()
         // working with the case of option 3
         if (option == 3)
         {
-            printf("* * *\n");
+            printf("\n* * *\n");
             while (correctGuesses != 1)
             {
                 // Get user guesses
@@ -159,7 +156,6 @@ int main()
 
                 if (guesses == option)
                 {
-                    correctGuesses = 1;
                     break;
                 }
             }
@@ -168,7 +164,7 @@ int main()
         // working with the case of option 5
         if (option == 5)
         {
-            printf("* * * * *\n");
+            printf("\n* * * * *\n");
             while (correctGuesses != 1)
             {
                 // Get user guesses
@@ -182,7 +178,6 @@ int main()
 
                 if (guesses = option)
                 {
-                    correctGuesses = 1;
                     break;
                 }
             }
@@ -191,7 +186,7 @@ int main()
         // working with the case of option 7
         if (option == 7)
         {
-            printf("* * * * * * *\n");
+            printf("\n* * * * * * *\n");
             while (correctGuesses != 1)
             {
                 // Get user guesses
@@ -205,13 +200,12 @@ int main()
 
                 if (guesses == option)
                 {
-                    correctGuesses = 1;
                     break;
                 }
             }
         }
     }
-
+    system("pause");
     return 0;
 }
 
