@@ -2,20 +2,34 @@
 #include <stdlib.h>
 #include <time.h>
 #include <string.h>
-#include <ctype.h>
 
 #define MAX_RANDOM_NUMBER 20
 
-int ordered_checker(int input[], int random[], int option);
-int disordered_checker(int input[], int random[], int option);
+void ordered_checker(int input[], int random[], int option);
+void disordered_checker(int input[], int random[], int option);
+void game();
 
 
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 int main()
 {
-    int i, guesses, input[7], option, attempts, correctGuesses = 0;
+    char playAgain;
+
+    do
+    {
+        game();
+
+        printf("Do you want to play again? (y/n): ");
+        scanf(" %c", &playAgain); // Notice the space before %c to consume any previous newline character
+
+    } while (playAgain == 'y' || playAgain == 'Y');
+
+    system("pause");
+    return 0;
+}
+
+void game()
+{
+    int i, guesses,input[7], option, attempts, correctGuesses = 0;
     char order[20];
 
     // creating our menu.
@@ -65,6 +79,10 @@ int main()
         random[i] = newRandom;
     }
 
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
     /*---------------------------------------------------------------DISORDERED:-----------------------------------------------------------------*/
 
     // working with the case of option 3
@@ -72,7 +90,7 @@ int main()
     {
         if (option == 3)
         {
-            printf("\n* * *\n");
+            printf("* * *\n");
             while (correctGuesses != 1)
             {
                 // Get user guesses
@@ -84,17 +102,25 @@ int main()
                 // Check if guesses are correct
                 disordered_checker(input, random, option);
 
-                if (guesses == option)
+                if ((input[0] == random[0] || input[0] == random[1] || input[0] == random[2])
+                && (input[1] == random[0] || input[1] == random[1] || input[1] == random[2])
+                && (input[2] == random[0] || input[2] == random[1] || input[2] == random[2]))
                 {
+                    correctGuesses = 1;
                     break;
                 }
+            }
+
+            if (correctGuesses) {
+                printf("Congratulations! You guessed all the numbers correctly!\n");
+                printf("The correct numbers were: %d %d %d\n", random[0], random[1], random[2]);
             }
         }
 
         // working with the case of option 5
         if (option == 5)
         {
-            printf("\n* * * * *\n");
+            printf("* * * * *\n");
             while (correctGuesses != 1)
             {
                 // Get user guesses
@@ -106,17 +132,26 @@ int main()
                 // Check if guesses are correct
                 disordered_checker(input, random, option);
 
-                if (guesses == option)
+                if ((input[0] == random[0] || input[0] == random[1] || input[0] == random[2] || input[0] == random[3] ||input[0] == random[4])
+                    && (input[1] == random[0] || input[1] == random[1] || input[1] == random[2] || input[1] == random[3] || input[1] == random[4])
+                    && (input[2] == random[0] || input[2] == random[1] || input[2] == random[2] || input[2] == random[3] || input[2] == random[4])
+                    && (input[3] == random[0] || input[3] == random[1] || input[3] == random[2] || input[3] == random[3] || input[3] == random[4])
+                    && (input[4] == random[0] || input[4] == random[1] || input[4] == random[2] || input[4] == random[3] || input[4] == random[4]))
                 {
+                    correctGuesses = 1;
                     break;
                 }
+            }
+            if (correctGuesses) {
+                printf("Congratulations! You guessed all the numbers correctly!\n");
+                printf("The correct numbers were: %d %d %d %d %d\n", random[0], random[1], random[2], random[3], random[4]);
             }
         }
 
         // working with the case of option 7
         if (option == 7)
         {
-            printf("\n* * * * * * *\n");
+            printf("* * * * * * *\n");
             while (correctGuesses != 1)
             {
                 // Get user guesses
@@ -128,10 +163,22 @@ int main()
                 // Check if guesses are correct
                 disordered_checker(input, random, option);
 
-                if (guesses == option)
+                 if ((input[0] == random[0] || input[0] == random[1] || input[0] == random[2] || input[0] == random[3] ||input[0] == random[4] || input[0] == random[5] ||input[0] == random[6])
+                    && (input[1] == random[0] || input[1] == random[1] || input[1] == random[2] || input[1] == random[3] ||input[1] == random[4] || input[1] == random[5] ||input[1] == random[6])
+                    && (input[2] == random[0] || input[2] == random[1] || input[2] == random[2] || input[2] == random[3] ||input[2] == random[4] || input[2] == random[5] ||input[2] == random[6])
+                    && (input[3] == random[0] || input[3] == random[1] || input[3] == random[2] || input[3] == random[3] ||input[3] == random[4] || input[3] == random[5] ||input[3] == random[6])
+                    && (input[4] == random[0] || input[4] == random[1] || input[4] == random[2] || input[4] == random[3] ||input[4] == random[4] || input[4] == random[5] ||input[4] == random[6])
+                    && (input[5] == random[0] || input[5] == random[1] || input[5] == random[2] || input[5] == random[3] ||input[5] == random[4] || input[5] == random[5] ||input[5] == random[6])
+                    && (input[6] == random[0] || input[6] == random[1] || input[6] == random[2] || input[6] == random[3] ||input[6] == random[4] || input[6] == random[5] ||input[6] == random[6]))
                 {
+                    correctGuesses = 1;
                     break;
                 }
+            }
+
+            if (correctGuesses) {
+                printf("Congratulations! You guessed all the numbers correctly!\n");
+                printf("The correct numbers were: %d %d %d %d %d %d %d\n", random[0], random[1], random[2], random[3], random[4],random[5], random[6]);
             }
         }
     }
@@ -142,7 +189,7 @@ int main()
         // working with the case of option 3
         if (option == 3)
         {
-            printf("\n* * *\n");
+            printf("* * *\n");
             while (correctGuesses != 1)
             {
                 // Get user guesses
@@ -154,17 +201,22 @@ int main()
                 // Check if guesses are correct
                 ordered_checker(input, random, option);
 
-                if (guesses == option)
+                if (input[0] == random[0] && input[1] == random[1] && input[2] == random[2])
                 {
+                    correctGuesses = 1;
                     break;
                 }
+            }
+            if (correctGuesses) {
+                printf("Congratulations! You guessed all the numbers correctly!\n");
+                printf("The correct numbers were: %d %d %d\n", random[0], random[1], random[2]);
             }
         }
 
         // working with the case of option 5
         if (option == 5)
         {
-            printf("\n* * * * *\n");
+            printf("* * * * *\n");
             while (correctGuesses != 1)
             {
                 // Get user guesses
@@ -176,17 +228,22 @@ int main()
                 // Check if guesses are correct
                 ordered_checker(input, random, option);
 
-                if (guesses = option)
+                if (input[0] == random[0] && input[1] == random[1] && input[2] == random[2] &&  input[3] == random[3] && input[4] == random[4])
                 {
+                    correctGuesses = 1;
                     break;
                 }
+            }
+            if (correctGuesses) {
+                printf("Congratulations! You guessed all the numbers correctly!\n");
+                printf("The correct numbers were: %d %d %d %d %d\n", random[0], random[1], random[2], random[3], random[4]);
             }
         }
 
         // working with the case of option 7
         if (option == 7)
         {
-            printf("\n* * * * * * *\n");
+            printf("* * * * * * *\n");
             while (correctGuesses != 1)
             {
                 // Get user guesses
@@ -198,23 +255,27 @@ int main()
                 // Check if guesses are correct
                 ordered_checker(input, random, option);
 
-                if (guesses == option)
+                if (input[0] == random[0] && input[1] == random[1] && input[2] == random[2] &&  input[3] == random[3] && input[4] == random[4] && input[5] == random[5] && input[6] == random[6])
                 {
+                    correctGuesses = 1;
                     break;
                 }
             }
+            if (correctGuesses) {
+                printf("Congratulations! You guessed all the numbers correctly!\n");
+                printf("The correct numbers were: %d %d %d %d %d %d %d\n", random[0], random[1], random[2], random[3], random[4],random[5], random[6]);
+            }
         }
     }
-    system("pause");
-    return 0;
 }
+
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // function to check for inputed values {DISORDERED}
-int disordered_checker(int input[], int random[], int option)
+void disordered_checker(int input[], int random[], int option)
 {
     int answer[option];
     int guesses = 0;
@@ -261,23 +322,10 @@ int disordered_checker(int input[], int random[], int option)
         }
         printf("\n");
     }
-    // If all guesses are correct, print a congratulatory message
-    if (guesses == option)
-    {
-        printf("Congratulations! You guessed all the numbers correctly!\n");
-        // Print the correct numbers
-        printf("The correct numbers were: ");
-        for (int i = 0; i < option; i++)
-        {
-            printf("%d ", random[i]);
-        }
-        printf("\n");
-    }
-    return guesses;
 }
 
 // function to check for inputed values {ORDERED}
-int ordered_checker(int input[], int random[], int option)
+void ordered_checker(int input[], int random[], int option)
 {
     int guesses = 0;
 
@@ -295,18 +343,4 @@ int ordered_checker(int input[], int random[], int option)
         }
     }
     printf("\n");
-
-    // If all guesses are correct, print a congratulatory message
-    if (guesses == option)
-    {
-        printf("Congratulations! You guessed all the numbers correctly!\n");
-        // Print the correct numbers
-        printf("The correct numbers were: ");
-        for (int i = 0; i < option; i++)
-        {
-            printf("%d ", random[i]);
-        }
-        printf("\n");
-    }
-    return guesses;
 }
