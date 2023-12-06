@@ -29,6 +29,7 @@ int main()
         
         if(attempts == 3)
         {
+            system("pause");
             system("cls");
             printf("----------------insert -1 to leave.----------------");
             attempts = 0;
