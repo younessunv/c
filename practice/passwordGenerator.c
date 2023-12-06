@@ -18,7 +18,13 @@ int main()
     do
     {
         printf("\nInsert how many characters you want in your password: ");
-        scanf("%d", &length);
+        
+        if (scanf("%d", &length) != 1)      
+        {
+            while (getchar() != '\n');
+            printf("Invalid input. Please enter a valid integer.");
+            continue;
+        }
 
         if (length == EXIT_CODE)
         {
