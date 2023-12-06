@@ -5,23 +5,52 @@
 
 #define MAX_RANDOM_NUMBER 20
 
+void game();
 void ordered_checker(int input[], int random[], int option);
 void disordered_checker(int input[], int random[], int option);
-void game();
+void sign_up();
+void sign_in();
+void clearScreen();
 
 
 int main()
 {
-    char playAgain;
+    int option_menu, option_sign;
+    char *start = "1-Sign in\n"
+                  "2-Sign up\n";
 
+    char *menu = "\n1- Play\n"
+                 "2- info\n"
+                 "3- top scores\n"
+                 "4- Exit\n";
+    ////////////////////////////////////////////////////////////:Sing up / Sign in://////////////////////////////////////////////////////////////
     do
+    {
+        printf("%s", start);
+        scanf("%d", &option_sign);
+        clearScreen();
+    } while (option_sign != 1 && option_sign != 2);
+    
+    ///////////////////////////////////////////sign in:
+
+
+    ///////////////////////////////////////////sign up:
+
+
+
+    printf("%s", menu);
+    scanf("%d", &option_menu);
+    clearScreen();
+
+    while(option_menu == 1)
     {
         game();
 
-        printf("Do you want to play again? (y/n): ");
-        scanf(" %c", &playAgain); // Notice the space before %c to consume any previous newline character
+        printf("%s", menu);
+        scanf("%d", &option_menu);
+        clearScreen(); 
 
-    } while (playAgain == 'y' || playAgain == 'Y');
+    }
 
     system("pause");
     return 0;
@@ -33,9 +62,9 @@ void game()
     char order[20];
 
     // creating our menu.
-    char *menu = "\n1-option: 3\n"
-                 "2-option: 5\n"
-                 "3-option: 7\n"
+    char *menu = "\n-option: 3\n"
+                 "-option: 5\n"
+                 "-option: 7\n"
                  "Select the number of colones you wish to risk please: ";
 
     // choosing an option of two {ordered/ disordered}
@@ -43,14 +72,20 @@ void game()
     {
         printf("\nchoose which mode you wanna play, insert {ordered / disordered}:\n");
         scanf("%s", order);
+        clearScreen();
     } while (strcmp(order, "ordered") != 0 && strcmp(order, "disordered") != 0);
+
+    clearScreen();
 
     // showing the menu and taking the input
     do
     {
         printf("%s", menu);
         scanf("%d", &option);
+        clearScreen();
     } while (option != 3 && option != 5 && option != 7);
+
+    clearScreen();
 
     // randomize the number asked to
     srand(time(NULL));
@@ -88,6 +123,7 @@ void game()
     // working with the case of option 3
     if (strcmp(order, "disordered") == 0)
     {
+        printf("------------------------------DISORDERED:----------------------------\n");
         if (option == 3)
         {
             printf("* * *\n");
@@ -181,11 +217,15 @@ void game()
                 printf("The correct numbers were: %d %d %d %d %d %d %d\n", random[0], random[1], random[2], random[3], random[4],random[5], random[6]);
             }
         }
+        system("pause");
+        clearScreen();
+        
     }
 
     /*---------------------------------------------------------------ORDERED:-----------------------------------------------------------------*/
     if (strcmp(order, "ordered") == 0)
     {
+        printf("------------------------------ORDERED:----------------------------\n");
         // working with the case of option 3
         if (option == 3)
         {
@@ -266,6 +306,8 @@ void game()
                 printf("The correct numbers were: %d %d %d %d %d %d %d\n", random[0], random[1], random[2], random[3], random[4],random[5], random[6]);
             }
         }
+        system("pause");
+        clearScreen();
     }
 }
 
@@ -342,4 +384,9 @@ void ordered_checker(int input[], int random[], int option)
         }
     }
     printf("\n");
+}
+
+void clearScreen()
+{
+    system("cls"); // Clear screen on Windows
 }
