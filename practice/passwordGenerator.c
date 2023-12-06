@@ -8,7 +8,7 @@ void passwordGenerater(char *password, int length);
 
 int main()
 {
-    int length;
+    int length, attempts = 0;
 
     printf("----------------insert -1 to leave.----------------");
     while(1)
@@ -23,7 +23,16 @@ int main()
 
         char password[length + 1];
         passwordGenerater(password, length);
-        printf("%s", password);
+        printf("%s\n", password);
+        attempts++;
+
+        
+        if(attempts == 3)
+        {
+            system("cls");
+            printf("----------------insert -1 to leave.----------------");
+            attempts = 0;
+        }
     }
     
     return 0;
