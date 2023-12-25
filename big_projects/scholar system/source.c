@@ -6,7 +6,7 @@ int main()
 {
     int choice;
     char *menu = "1- Save your info\n"
-                 "2- Look for someone\n"
+                 "2- Look for some one\n"
                  "3- Exit\n";
 
     struct Etudiant Etudiant;
@@ -27,21 +27,26 @@ int main()
             system("pause");
             system("cls");
         }
+
         else if (choice == 2)
         {
-            char Etudiants_name[33];
-            printf("Insert the name of the Etudiant you're looking for: ");
-            scanf("%32s", Etudiants_name);
+            char First_name[33], Last_name[33];
+            printf("insert the first name of the Etudiant your looking for: ");
+            scanf("%32s", First_name);
+            printf("Last name: ");
+            scanf("%32s", Last_name);
             system("cls");
 
-            search_Etudiant_Info(Etudiants_name);
+            check_Etudiant_Info_by_name(First_name, Last_name);
             system("pause");
             system("cls");
         }
+
         else if (choice == 3)
         {
             break;
         }
+
         else
         {
             printf("Invalid choice. Please enter 1, 2, or 3.\n\n");

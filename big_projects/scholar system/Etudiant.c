@@ -8,21 +8,20 @@ struct Etudiant Etudiant;
 
 void get_Etudiant_Info(struct Etudiant *Etudiant)
 {
-    printf("Enter your user name: ");
-    fgets(Etudiant->user_name, 33, stdin);
-    size_t len = strlen(Etudiant->user_name);
-    if (len > 0 && Etudiant->user_name[len - 1] == '\n')
-        Etudiant->user_name[len - 1] = '\0';
+    printf("Enter your First name: ");
+    scanf("%32s", Etudiant->Etudiant_First_name);
+
+    printf("Enter your Last name: ");
+    scanf("%32s", Etudiant->Etudiant_last_name);
 
     printf("Enter your age: ");
-    scanf("%d", &Etudiant->age);
-    getchar();
+    scanf("%d", &Etudiant->Etudiant_age);
+
+    printf("Enter your city: ");
+    scanf("%32s", Etudiant->Etudiant_city);
 
     printf("Enter your formation: ");
-    fgets(Etudiant->formation, 33, stdin);
-    len = strlen(Etudiant->formation);
-    if (len > 0 && Etudiant->formation[len - 1] == '\n')
-        Etudiant->formation[len - 1] = '\0';
+    scanf("%32s", Etudiant->Etudiant_formation);
 }
 
 void adding_Etudiant_info(const struct Etudiant *Etudiant, int EtudiantCount)
@@ -36,9 +35,11 @@ void adding_Etudiant_info(const struct Etudiant *Etudiant, int EtudiantCount)
     }
 
     fprintf(file, "----------------Etudiant %d----------------\n", EtudiantCount);
-    fprintf(file, "User Name: %s\n", Etudiant->user_name);
-    fprintf(file, "Age: %d\n", Etudiant->age);
-    fprintf(file, "Formation: %s\n", Etudiant->formation);
+    fprintf(file, "First Name: %s\n", Etudiant->Etudiant_First_name);
+    fprintf(file, "Last Name: %s\n", Etudiant->Etudiant_last_name);
+    fprintf(file, "Age: %d\n", Etudiant->Etudiant_age);
+    fprintf(file, "City: %s\n", Etudiant->Etudiant_city);
+    fprintf(file, "Formation: %s\n", Etudiant->Etudiant_formation);
     fprintf(file, "-----------------------------------------\n");
 
     fclose(file);
@@ -75,32 +76,35 @@ void write_etudiant_Count(int count)
     fclose(countFile);
 }
 
-void search_Etudiant_Info(char *textToFind)
+void check_Etudiant_Info_by_name(const char *firstName, const char *lastName)
 {
     FILE *file = fopen("Etudiant.txt", "r");
 
     if (file == NULL)
     {
-        fprintf(stderr, "Error opening file: Etudiant.txt\n");
+        perror("Error opening file");
         return;
     }
 
-    char line[44];
+    char line[50];
     int found = 0;
 
-    while (fgets(line, 44, file) != NULL)
+    while (fgets(line, sizeof(line), file))
     {
-        if (strstr(line, textToFind) != NULL)
+        if (strstr(line, firstName) != NULL)
         {
-            found = 1;
-
-            printf("\n%s", line);
-            for (int i = 0; i < 2; i++)
+            printf("%s", line);
+            fgets(line, sizeof(line), file);
+            if (strstr(line, lastName) != NULL)
             {
-                if (fgets(line, 44, file) != NULL)
+                printf("%s", line);
+                for (int i = 0; i < 3; ++i)
                 {
+                    fgets(line, sizeof(line), file);
                     printf("%s", line);
                 }
+                found = 1;
+                break;
             }
         }
     }
@@ -109,6 +113,6 @@ void search_Etudiant_Info(char *textToFind)
 
     if (!found)
     {
-        printf("Name does not exist in the file.\nMaybe try to save this Etudiant info in the file.\n");
+        printf("Etudiant not found.\n");
     }
 }

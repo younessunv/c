@@ -3,15 +3,18 @@
 
 struct Etudiant
 {
-    char user_name[33];
-    int age;
-    char formation[33];
+    char Etudiant_First_name[33];
+    char Etudiant_last_name[33];
+    int Etudiant_age;
+    char Etudiant_city[33];
+    char Etudiant_formation[33];
 };
 
-void get_Etudiant_Info(struct Etudiant *person);
-void adding_Etudiant_info(const struct Etudiant *person, int personCount);
+
+void get_Etudiant_Info(struct Etudiant *Etudiant);
+void adding_Etudiant_info(const struct Etudiant *Etudiant, int personCount);
 int read_Etudiant_Count();
 void write_etudiant_Count(int count);
-void search_Etudiant_Info(char *textToFind);
+void check_Etudiant_Info_by_name(const char *firstName, const char *lastName);
 
 #endif
