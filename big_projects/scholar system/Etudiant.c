@@ -113,6 +113,7 @@ void check_Etudiant_Info_by_name(const char *firstName, const char *lastName)
 
     if (!found)
     {
+        system("cls");
         printf("Etudiant not found.\n");
     }
 }
