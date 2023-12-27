@@ -1,7 +1,7 @@
 #ifndef ETUDIANT_H
 #define ETUDIANT_H
 
-struct Etudiant
+typedef struct Etudiant
 {
     char Etudiant_First_name[33];
     char Etudiant_last_name[33];
