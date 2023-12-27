@@ -91,20 +91,31 @@ void check_Etudiant_Info_by_name(const char *firstName, const char *lastName)
 
     while (fgets(line, sizeof(line), file))
     {
-        if (strstr(line, firstName) != NULL)
+        char first_Name[33], last_Name[33];
+
+        if (strstr(line, "First Name: ") != NULL)
         {
-            printf("%s", line);
-            fgets(line, sizeof(line), file);
-            if (strstr(line, lastName) != NULL)
+            sscanf(line, "First Name: %s", first_Name);
+            if (strstr(first_Name, firstName) != NULL)
             {
                 printf("%s", line);
-                for (int i = 0; i < 3; ++i)
+                fgets(line, sizeof(line), file);
+
+                if (strstr(line, "Last Name: ") != NULL)
                 {
-                    fgets(line, sizeof(line), file);
-                    printf("%s", line);
+                    sscanf(line, "Last Name: %s", last_Name);
+                    if (strstr(last_Name, lastName) != NULL)
+                    {
+                        printf("%s", line);
+                        found = 1;
+
+                        for (int i = 0; i < 3; i++)
+                        {
+                            fgets(line, sizeof(line), file);
+                            printf("%s", line);
+                        }
+                    }
                 }
-                found = 1;
-                break;
             }
         }
     }
@@ -113,6 +124,7 @@ void check_Etudiant_Info_by_name(const char *firstName, const char *lastName)
 
     if (!found)
     {
+        system("cls");
         printf("Etudiant not found.\n");
     }
 }
