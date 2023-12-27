@@ -1,3 +1,8 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include "Etudiant.h"
+
 int main()
 {
     int menu_choice, search_choice;
