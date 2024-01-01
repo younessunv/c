@@ -2,50 +2,52 @@
 #include <stdlib.h>
 #include <string.h>
 #include "Etudiant.h"
+#include "Teacher.h"
+#include "Formation.h"
+#include "Modules.h"
 
 int main()
 {
     int menu_choice;
 
-    char *menu = "1- Save your info\n"
-                 "2- Look for some one\n"
-                 "3- Exit\n";
-
-    struct Etudiant Etudiant;
+    char *Menu = "1- Etudiant\n"
+                 "2- Teacher\n"
+                 "3- Formation\n"
+                 "4- Exit\n";
 
     do
     {
-        printf("%s", menu);
+        printf("%s", Menu);
         scanf("%d", &menu_choice);
         system("cls");
 
-        if (menu_choice == 1)
+        if(menu_choice == 1)
         {
-            int EtudiantCount = read_Etudiant_Count();
-            get_Etudiant_Info(&Etudiant);
-            EtudiantCount++;
-            adding_Etudiant_info(&Etudiant, EtudiantCount);
-            write_etudiant_Count(EtudiantCount);
-            system("pause");
-            system("cls");
+            Etudiant_menu();
         }
 
-        else if (menu_choice == 2)
+        else if(menu_choice == 2)
         {
-            Search();
+            Teacher_Menu();
         }
 
-        else if (menu_choice == 3)
+        else if(menu_choice == 3)
+        {
+            break;
+        }
+
+        else if(menu_choice == 4)
         {
             break;
         }
 
         else
         {
-            printf("Invalid choice. Please enter 1, 2, or 3.\n\n");
+            printf("Invalid choice. Please enter 1, 2, 3 or 4.\n\n");
         }
 
     } while (1);
+
 
     return 0;
 }
