@@ -7,9 +7,54 @@
 struct Etudiant Etudiant;
 
 
+void Etudiant_menu()
+{
+    int etudiant_menu_choice;
+
+    char *etudiant_menu = "1- Save your info\n"
+                 "2- Look for some one\n"
+                 "3- Return\n";
+
+    struct Etudiant Etudiant;
+
+    do
+    {
+        printf("%s", etudiant_menu);
+        scanf("%d", &etudiant_menu_choice);
+        system("cls");
+
+        if (etudiant_menu_choice == 1)
+        {
+            int EtudiantCount = read_Etudiant_Count();
+            get_Etudiant_Info(&Etudiant);
+            EtudiantCount++;
+            adding_Etudiant_info(&Etudiant, EtudiantCount);
+            write_etudiant_Count(EtudiantCount);
+            system("pause");
+            system("cls");
+        }
+
+        else if (etudiant_menu_choice == 2)
+        {
+            Etudiant_Search();
+        }
+
+        else if (etudiant_menu_choice == 3)
+        {
+            break;
+        }
+
+        else
+        {
+            printf("Invalid choice. Please enter 1, 2, or 3.\n\n");
+        }
+
+    } while (1);
+
+}
+
 void get_Etudiant_Info(struct Etudiant *Etudiant)
 {
-    size_t len;
 
     printf("Enter your First name: ");
     scanf("%32s", Etudiant->Etudiant_First_name);
@@ -102,11 +147,11 @@ void write_etudiant_Count(int count)
     fclose(countFile);
 }
 
-void Search()
+void Etudiant_Search()
 {
-    int search_choice;
+    int Etudiant_search_choice;
 
-    char *search = "1- Search by name\n"
+    char *Etudiant_search = "1- Search by name\n"
                    "2- Search by age\n"
                    "3- Search by city\n"
                    "4- Search by formation\n"
@@ -115,11 +160,11 @@ void Search()
     do
     {
 
-        printf("%s", search);
-        scanf("%d", &search_choice);
+        printf("%s", Etudiant_search);
+        scanf("%d", &Etudiant_search_choice);
         system("cls");
 
-        if (search_choice == 1)
+        if (Etudiant_search_choice == 1)
         {
 
             char First_name[33], Last_name[33];
@@ -134,7 +179,7 @@ void Search()
             system("cls");
         }
 
-        else if (search_choice == 2)
+        else if (Etudiant_search_choice == 2)
         {
             int age;
             printf("insert the age of Etudiant looking for: ");
@@ -146,7 +191,7 @@ void Search()
             system("cls");
         }
 
-        else if (search_choice == 3)
+        else if (Etudiant_search_choice == 3)
         {
             char city[50];
             printf("insert the City of the Etudiant your looking for: ");
@@ -158,7 +203,7 @@ void Search()
             system("cls");
         }
 
-        else if (search_choice == 4)
+        else if (Etudiant_search_choice == 4)
         {
             char formation[33];
             printf("insert the Formation of the Etudiant your looking for: ");
@@ -170,7 +215,7 @@ void Search()
             system("cls");
         }
 
-        else if (search_choice == 5)
+        else if (Etudiant_search_choice == 5)
         {
             break;
         }
