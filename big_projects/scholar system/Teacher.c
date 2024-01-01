@@ -140,7 +140,7 @@ void Teacher_Search()
 
     char *Teacher_Menu = "1- Search by name\n"
                    "2- Search by speciality\n"
-                   "5- Return\n";
+                   "3- Return\n";
 
     do
     {
@@ -224,11 +224,10 @@ void check_Teacher_Info_by_name(const char *firstName, const char *lastName)
                         printf("%s", line);
                         found = 1;
 
-                        for (int i = 0; i < 3; i++)
-                        {
-                            fgets(line, sizeof(line), file);
-                            printf("%s", line);
-                        }
+                        fgets(line, sizeof(line), file);
+                        printf("%s", line);
+                        printf("----------------------------------------------------------------\n");
+                        
                     }
                 }
             }
@@ -265,7 +264,7 @@ void check_Teacher_Info_by_speciality(const char *speciality)
         if (strstr(line, "Speciality: ") != NULL)
         {
             char Teacher_speciality[33];
-            sscanf(line, "Speciality: %s", speciality);
+            sscanf(line, "Speciality: %s", Teacher_speciality);
 
             if (strstr(Teacher_speciality, speciality) != NULL)
             {
@@ -299,11 +298,10 @@ void check_Teacher_Info_by_speciality(const char *speciality)
             {
 
                 char Teacher_speciality[33];
-                sscanf(line, "Speciality: %s", speciality);
+                sscanf(line, "Speciality: %s", Teacher_speciality);
 
                 if (strstr(Teacher_speciality, speciality) != NULL)
                 {
-                    // Print the 2 lines before Age, Age line, and 1 line after Age
                     for (int i = 0; i < 3; i++)
                         printf("%s", buffer[i]);
 
