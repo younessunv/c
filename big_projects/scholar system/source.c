@@ -3,8 +3,10 @@
 #include <string.h>
 #include "Etudiant.h"
 #include "Teacher.h"
+#include "Departement.h"
 #include "Formation.h"
 #include "Modules.h"
+
 
 int main()
 {
