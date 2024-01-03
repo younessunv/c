@@ -7,6 +7,52 @@
 struct Etudiant Etudiant;
 
 
+void Etudiant_Menu()
+{
+    int etudiant_menu_choice;
+
+    char *etudiant_menu = "1- Save your info\n"
+                 "2- Look for some one\n"
+                 "3- Return\n";
+
+    struct Etudiant Etudiant;
+
+    do
+    {
+        printf("%s", etudiant_menu);
+        scanf("%d", &etudiant_menu_choice);
+        system("cls");
+
+        if (etudiant_menu_choice == 1)
+        {
+            int EtudiantCount = read_Etudiant_Count();
+            get_Etudiant_Info(&Etudiant);
+            EtudiantCount++;
+            adding_Etudiant_info(&Etudiant, EtudiantCount);
+            write_etudiant_Count(EtudiantCount);
+            system("pause");
+            system("cls");
+        }
+
+        else if (etudiant_menu_choice == 2)
+        {
+            Search();
+        }
+
+        else if (etudiant_menu_choice == 3)
+        {
+            break;
+        }
+
+        else
+        {
+            printf("Invalid choice. Please enter 1, 2, or 3.\n\n");
+        }
+
+    } while (1);
+
+}
+
 void get_Etudiant_Info(struct Etudiant *Etudiant)
 {
     size_t len;
