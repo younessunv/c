@@ -15,7 +15,7 @@ void Formation_menu()
                  "3- Return\n";
 
     struct Formation formation;
-
+    
     do
     {
         printf("%s", menu);

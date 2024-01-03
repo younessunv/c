@@ -4,6 +4,8 @@
 #include <errno.h>
 #include "Departement.h"
 
+int totalDepartments = 0;
+
 void Departement_menu()
 {
     struct Departement departement;

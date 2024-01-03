@@ -1,12 +1,14 @@
 #ifndef FORMATION_H
 #define FORMATION_H
 
+#include "Modules.h"
+
 typedef struct Formation
 {
     char name[33];
     struct Modules modules[10];
     int moduleCount;
-};
+}Formation;
 
 
 void Formation_menu();

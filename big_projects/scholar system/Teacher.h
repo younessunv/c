@@ -16,6 +16,5 @@ void write_Teacher_Count(int count);
 void Teacher_Search();
 void check_Teacher_Info_by_name(const char *firstName, const char *lastName);
 void check_Teacher_Info_by_speciality(const char *speciality);
-void clearInputBuffer();
 
 #endif

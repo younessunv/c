@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include "Etudiant.h"
 #include "Teacher.h"
 #include "Departement.h"
@@ -14,8 +13,9 @@ int main()
 
     char *Menu = "1- Etudiant\n"
                  "2- Teacher\n"
-                 "3- Formation\n"
-                 "4- Exit\n";
+                 "3- Departement\n"
+                 "4- Formation\n"
+                 "5- Exit\n";
 
     do
     {
@@ -35,17 +35,22 @@ int main()
 
         else if(menu_choice == 3)
         {
-            break;
+            Departement_menu();
         }
 
         else if(menu_choice == 4)
+        {
+            Formation_menu();
+        }
+
+        else if(menu_choice == 5)
         {
             break;
         }
 
         else
         {
-            printf("Invalid choice. Please enter 1, 2, 3 or 4.\n\n");
+            printf("Invalid choice. Please enter 1, 2, 3, 4 or 5.\n\n");
         }
 
     } while (1);

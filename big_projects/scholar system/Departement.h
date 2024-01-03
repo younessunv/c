@@ -5,16 +5,13 @@ typedef struct Departement
 {
     char name[33];
     int departementCount;
-};
+} Departement;
 
-int totalDepartments = 0;
-
+extern int totalDepartments;
 
 void Departement_menu();
 void create_Departement(struct Departement *departement);
 void save_Departement(const struct Departement *departement);
 void search_Departement();
-
-
 
 #endif
