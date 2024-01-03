@@ -3,6 +3,8 @@
 #include <string.h>
 #include <errno.h>
 #include "Formation.h"
+#include "Modules.h"
+
 
 void Formation_menu()
 {
