@@ -1,7 +1,7 @@
 #ifndef ETUDIANT_H
 #define ETUDIANT_H
 
-typedef struct Etudiant
+struct Etudiant
 {
     char Etudiant_First_name[33];
     char Etudiant_last_name[33];
@@ -10,13 +10,11 @@ typedef struct Etudiant
     char Etudiant_formation[33];
 };
 
-
-void Etudiant_Menu();
-void Search();
 void get_Etudiant_Info(struct Etudiant *Etudiant);
-void adding_Etudiant_info(const struct Etudiant *Etudiant, int personCount);
+void adding_Etudiant_info(const struct Etudiant *Etudiant, int EtudiantCount);
 int read_Etudiant_Count();
 void write_etudiant_Count(int count);
+void Search();
 void check_Etudiant_Info_by_name(const char *firstName, const char *lastName);
 void check_Etudiant_Info_by_age(const int age);
 void check_Etudiant_Info_by_city(const char *city);
