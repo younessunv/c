@@ -7,7 +7,6 @@ struct Etudiant
     char Etudiant_last_name[33];
     int Etudiant_age;
     char Etudiant_city[33];
-    char Etudiant_formation[33];
 };
 
 void Etudiant_menu();
