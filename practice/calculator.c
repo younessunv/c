@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <math.h>
 
 int main(void) {
@@ -47,9 +48,8 @@ int main(void) {
         }
         printf("\ndo you want to do another calculation (y/n): ");
         scanf(" %c", &try);
+        system("cls");
     }while(try == 'y');
     
     return 0;
 }
-
-
